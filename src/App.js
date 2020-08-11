@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from './Person/Person'
+import ValidationComponent from './ValidationComponent/ValidationComponent'
+import Char from './Char/Char'
 
 class App extends Component {
     state = {
         persons: [
-            {id: '1wef' ,name: 'Ilya', age: 39},
-            {id: 'sdf1' ,name: 'Lena', age: 38},
-            {id: '1sdf' ,name: 'Alex', age: 39}
+            {id: '1wef', name: 'Ilya', age: 39},
+            {id: 'sdf1', name: 'Lena', age: 38},
+            {id: '1sdf', name: 'Alex', age: 39}
         ],
-        showPersons: false
+        showPersons: false,
+        userInput: ''
+    };
+
+    inputChangedHandler = (event) => {
+        this.setState({userInput: event.target.value});
+        console.log(event.target.value)
+    };
+
+    deleteCharacter = (index) => {
+        const text = this.state.userInput.split('');
+        text.splice(index, 1);
+        const updatedInput = text.join('');
+        this.setState({userInput: updatedInput})
     };
 
     togglePersonsHandler = () => {
@@ -24,7 +39,7 @@ class App extends Component {
         this.setState({persons: persons})
     };
     nameChangedHandler = (event, id) => {
-        const personIndex = this.state.persons.findIndex(p=>{
+        const personIndex = this.state.persons.findIndex(p => {
             return p.id === id;
         });
 
@@ -33,7 +48,7 @@ class App extends Component {
         };
 
         //Alternative:
-        // const person_alterantive = Object.assign({}, this.state.persons[personIndex]);
+        // const person = Object.assign({}, this.state.persons[personIndex]);
 
         person.name = event.target.value;
 
@@ -62,10 +77,17 @@ class App extends Component {
                 </div>
             )
         }
+        let charList = this.state.userInput.split('').map((ch, index) => {
+            return <Char ch={ch} key={index} click={()=>this.deleteCharacter(index)} />
+        });
+
         return (
             <div className="App">
                 <button onClick={this.togglePersonsHandler}>Show persons</button>
                 {persons}
+                <input type="text" onChange={(event) => this.inputChangedHandler(event)} value={this.state.userInput}/>
+                <ValidationComponent userInputLength={this.state.userInput.length}/>
+                {charList}
             </div>
         )
     }
