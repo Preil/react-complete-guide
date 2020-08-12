@@ -60,6 +60,16 @@ class App extends Component {
     };
 
     render() {
+
+        const style = {
+            backgroundColor: 'green',
+            color: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+
         let persons = null;
         if (this.state.showPersons) {
             persons = (
@@ -76,6 +86,7 @@ class App extends Component {
                     )}
                 </div>
             )
+            style.backgroundColor='red'
         }
         let charList = this.state.userInput.split('').map((ch, index) => {
             return <Char ch={ch} key={index} click={()=>this.deleteCharacter(index)} />
@@ -83,7 +94,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <button onClick={this.togglePersonsHandler}>Show persons</button>
+                <button style={style} onClick={this.togglePersonsHandler}>Toggle persons</button>
                 {persons}
                 <input type="text" onChange={(event) => this.inputChangedHandler(event)} value={this.state.userInput}/>
                 <ValidationComponent userInputLength={this.state.userInput.length}/>
