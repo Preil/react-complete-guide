@@ -88,14 +88,28 @@ class App extends Component {
             )
             style.backgroundColor='red'
         }
+
+        const classes=[];
+
+        if (this.state.persons.length <= 2){
+            classes.push('red'); // classes = ['red']
+        }
+        if (this.state.persons.length <=1){
+            classes.push('bold') // classes = ['red, 'bold']
+        }
+
+
         let charList = this.state.userInput.split('').map((ch, index) => {
             return <Char ch={ch} key={index} click={()=>this.deleteCharacter(index)} />
         });
 
         return (
             <div className="App">
+                <h1>Hi, I'm a React App</h1>
+                <p className={classes.join(' ')}>This is really working</p>
                 <button style={style} onClick={this.togglePersonsHandler}>Toggle persons</button>
                 {persons}
+                <p></p>
                 <input type="text" onChange={(event) => this.inputChangedHandler(event)} value={this.state.userInput}/>
                 <ValidationComponent userInputLength={this.state.userInput.length}/>
                 {charList}
