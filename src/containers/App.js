@@ -62,7 +62,7 @@ class App extends Component {
 
 
         return (
-            <div className="App">
+            <div className={classes.App}>
                 <Cockpit
                     showPersons={this.state.showPersons}
                     persons={this.state.persons}
