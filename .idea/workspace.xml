@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8d51128-61f0-4fca-8a21-8634ccd73e6c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Cockpit/Cockpit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cockpit/Cocpit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cockpit/Cockpit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Persons/Persons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Persons/Persons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="c8d51128-61f0-4fca-8a21-8634ccd73e6c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -98,8 +92,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="414">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -170,8 +164,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="819" />
-    <option name="y" value="42" />
+    <option name="x" value="807" />
+    <option name="y" value="11" />
     <option name="width" value="1037" />
     <option name="height" value="1080" />
   </component>
@@ -276,7 +270,7 @@
       <workItem from="1597064151543" duration="7863000" />
       <workItem from="1597131729800" duration="19835000" />
       <workItem from="1597239753149" duration="7053000" />
-      <workItem from="1597326386260" duration="8957000" />
+      <workItem from="1597326386260" duration="9310000" />
     </task>
     <task id="LOCAL-00001" summary="Empty react app">
       <created>1596802364178</created>
@@ -429,22 +423,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50616000" />
+    <option name="totallyTimeSpent" value="50969000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="819" y="42" width="1037" height="1080" extended-state="0" />
-    <editor active="true" />
+    <frame x="807" y="11" width="1037" height="1080" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16376664" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25076765" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5034722" side_tool="true" weight="0.33719704" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4988426" weight="0.32349843" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4988426" weight="0.32271764" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4965278" visible="true" weight="0.34288746" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4965278" visible="true" weight="0.34288746" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -890,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="414">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
