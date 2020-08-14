@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Radium from 'radium'
 
-import Person from './Person/Person'
-import ValidationComponent from './ValidationComponent/ValidationComponent'
-import Char from './Char/Char'
-
+import Person from '../components/Persons/Person/Person'
 
 class App extends Component {
     state = {
