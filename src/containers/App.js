@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
-import Radium from 'radium'
-
-import Person from '../components/Persons/Person/Person'
+import classes from'./App.css';
+import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
     state = {
@@ -11,20 +10,7 @@ class App extends Component {
             {id: 'sdf1', name: 'Lena', age: 38},
             {id: '1sdf', name: 'Alex', age: 39}
         ],
-        showPersons: false,
-        userInput: ''
-    };
-
-    inputChangedHandler = (event) => {
-        this.setState({userInput: event.target.value});
-        console.log(event.target.value)
-    };
-
-    deleteCharacter = (index) => {
-        const text = this.state.userInput.split('');
-        text.splice(index, 1);
-        const updatedInput = text.join('');
-        this.setState({userInput: updatedInput})
+        showPersons: false
     };
 
     togglePersonsHandler = () => {
@@ -61,69 +47,31 @@ class App extends Component {
 
     render() {
 
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-            ':hover': {
-                backgroundColor: 'lightgreen',
-                color: 'black'
-            }
-        };
 
         let persons = null;
         if (this.state.showPersons) {
             persons = (
                 <div>
-                    {this.state.persons.map(
-                        (person, index) => {
-                            return <Person
-                                name={person.name}
-                                age={person.age}
-                                click={() => this.deletePersonHandler(index)}
-                                key={person.id}
-                                changed={(event) => this.nameChangedHandler(event, person.id)}/>
-                        }
-                    )}
+                    <Persons
+                        persons={this.state.persons}
+                        clicked={this.deletePersonHandler}
+                        changed={this.deletePersonHandler}/>
                 </div>
             )
-            style.backgroundColor='red'
-            style[':hover']={
-                backgroundColor: 'salmon',
-                color: 'black'
-            }
         }
 
-        const classes=[];
-
-        if (this.state.persons.length <= 2){
-            classes.push('red'); // classes = ['red']
-        }
-        if (this.state.persons.length <=1){
-            classes.push('bold') // classes = ['red, 'bold']
-        }
-
-
-        let charList = this.state.userInput.split('').map((ch, index) => {
-            return <Char ch={ch} key={index} click={()=>this.deleteCharacter(index)} />
-        });
 
         return (
             <div className="App">
-                <h1>Hi, I'm a React App</h1>
-                <p className={classes.join(' ')}>This is really working</p>
-                <button style={style} onClick={this.togglePersonsHandler}>Toggle persons</button>
-                {persons}
+                <Cockpit
+                    showPersons={this.state.showPersons}
+                    persons={this.state.persons}
+                    clicked={this.togglePersonsHandler}/>
+                    {persons}
                 <p></p>
-                <input type="text" onChange={(event) => this.inputChangedHandler(event)} value={this.state.userInput}/>
-                <ValidationComponent userInputLength={this.state.userInput.length}/>
-                {charList}
             </div>
         )
     }
 }
 
-export default Radium(App);
+export default App;
