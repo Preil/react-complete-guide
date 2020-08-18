@@ -3,6 +3,7 @@ import Radium from 'radium';
 import classes from'./Person.css'
 
 const person = (props) => {
+    console.log('[Person.js] rendering...')
     return (
         <div className={classes.Person}>
             <p>I'm {props.name} and I'm {props.age}</p>
