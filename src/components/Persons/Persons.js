@@ -12,26 +12,31 @@ class Persons extends Component {
     //     console.log('[Persons.js] componentWillReceiveProps')
     // }
 
-    shouldComponentUpdate(nextProps, nextState){
+    shouldComponentUpdate(nextProps, nextState) {
         console.log('[Persons.js] shouldComponentUpdate');
-        return true; // false if react should NOT update component
+
+        if (nextProps.persons !== this.props.persons) {
+            return true;
+        } else {
+            return false
+        }
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState){
+    getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons] getSnapshotBeforeUpdate');
         return {message: 'Snapshot!'};
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot){
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[Persons] componentDidUpdate');
         console.log(snapshot);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         console.log('[Persons.js] componentWillUnmount')
     }
 
-    render(){
+    render() {
         return this.props.persons.map((person, index) => {
             console.log('[Persons.js] rendering...');
             return <Person
@@ -43,4 +48,5 @@ class Persons extends Component {
         });
     }
 }
+
 export default Persons;
