@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './Cockpit.css'
 
 
 
 const cockpit = (props) => {
+
+    useEffect(()=>{
+        // This hook executes every state update and every render() cycle
+       console.log('[Cockpit.js] useEffect')
+        // Can make http request here if needed.
+    });
+
+
     const assignedClasses = [];
 
     let btnClass='';
