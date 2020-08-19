@@ -8,12 +8,13 @@ const cockpit = (props) => {
             // This hook executes every state update and every render() cycle
             console.log('[Cockpit.js] useEffect')
             // Can make http request here if needed.
-            setTimeout(() => {
+            const timer = setTimeout(() => {
                 alert('Saved data to cloud');
             }, 1000);
 
             // we can add return to have clean up work? after component unmount action
             return ()=>{
+                clearTimeout(timer);
                 console.log('[Cockpit.js] cleanup work in useEffect')
             }
 
