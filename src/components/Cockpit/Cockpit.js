@@ -8,9 +8,15 @@ const cockpit = (props) => {
             // This hook executes every state update and every render() cycle
             console.log('[Cockpit.js] useEffect')
             // Can make http request here if needed.
-            setTimeout(()=>{
+            setTimeout(() => {
                 alert('Saved data to cloud');
             }, 1000);
+
+            // we can add return to have clean up work? after component unmount action
+            return ()=>{
+                console.log('[Cockpit.js] cleanup work in useEffect')
+            }
+
             // this will start useEffect after persons were changed
         }, [props.persons]);
 

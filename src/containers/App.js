@@ -46,6 +46,7 @@ class App extends Component {
         console.log('[App.js] componentDidUpdate');
     }
 
+
     togglePersonsHandler = () => {
         const doesShow = this.state.showPersons;
         this.setState({showPersons: !doesShow})
