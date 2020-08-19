@@ -1,40 +1,45 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import classes from './Cockpit.css'
-
 
 
 const cockpit = (props) => {
 
-    useEffect(()=>{
-        // This hook executes every state update and every render() cycle
-       console.log('[Cockpit.js] useEffect')
-        // Can make http request here if needed.
-    });
+        useEffect(() => {
+            // This hook executes every state update and every render() cycle
+            console.log('[Cockpit.js] useEffect')
+            // Can make http request here if needed.
+            setTimeout(()=>{
+                alert('Saved data to cloud');
+            }, 1000);
+            // this will start useEffect after persons were changed
+        }, [props.persons]);
+
+        // we can apply useEffect() for different object changes as mny times as needed
 
 
-    const assignedClasses = [];
+        const assignedClasses = [];
 
-    let btnClass='';
-    if(props.showPersons){
-        btnClass=classes.Red;
+        let btnClass = '';
+        if (props.showPersons) {
+            btnClass = classes.Red;
+        }
+
+        if (props.persons.length <= 2) {
+            assignedClasses.push(classes.red); // classes = ['red']
+        }
+        if (props.persons.length <= 1) {
+            assignedClasses.push(classes.bold) // classes = ['red, 'bold']
+        }
+
+        return (
+            <div className={classes.Cockpit}>
+                <h1>{props.title}</h1>
+                <p className={assignedClasses.join(' ')}>This is really working</p>
+                <button className={btnClass} onClick={props.clicked}>Toggle persons</button>
+
+            </div>
+        );
     }
+;
 
-    if (props.persons.length <= 2) {
-        assignedClasses.push(classes.red); // classes = ['red']
-    }
-    if (props.persons.length <= 1) {
-        assignedClasses.push(classes.bold) // classes = ['red, 'bold']
-    }
-
-    return (
-        <div className={classes.Cockpit}>
-            <h1>{props.title}</h1>
-            <p className={assignedClasses.join(' ')}>This is really working</p>
-            <button className={btnClass} onClick={props.clicked}>Toggle persons</button>
-
-        </div>
-    );
-}
-    ;
-
-    export default cockpit;
+export default cockpit;
