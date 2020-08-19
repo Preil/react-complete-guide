@@ -5,10 +5,9 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
 
-
 class App extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log('[App.js] constructor');
 
@@ -26,14 +25,25 @@ class App extends Component {
         showPersons: false
     };
 
-    static getDerivedStateFromProps(props, state){
+    static getDerivedStateFromProps(props, state) {
         console.log('[App.js] getDerivedStateFromProps', props)
         return state; // here we return updated state
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         console.log('[App.js] componentDidMount')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[App.js] shouldComponentsUpdate');
+        console.log('nextProps: ', nextProps);
+        console.log('nextState: ', nextState);
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log('[App.js] componentDidUpdate');
     }
 
     togglePersonsHandler = () => {
@@ -86,15 +96,15 @@ class App extends Component {
 
         return (
 
-                <div className={classes.App}>
-                    <Navigation />
-                    <Cockpit title={this.props.appTitle}
-                        showPersons={this.state.showPersons}
-                        persons={this.state.persons}
-                        clicked={this.togglePersonsHandler}/>
-                    {persons}
-                    <p></p>
-                </div>
+            <div className={classes.App}>
+                <Navigation/>
+                <Cockpit title={this.props.appTitle}
+                         showPersons={this.state.showPersons}
+                         persons={this.state.persons}
+                         clicked={this.togglePersonsHandler}/>
+                {persons}
+                <p></p>
+            </div>
 
         )
     }
