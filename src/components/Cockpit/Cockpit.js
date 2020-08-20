@@ -19,7 +19,7 @@ const cockpit = (props) => {
             }
 
             // this will start useEffect after persons were changed
-        }, [props.persons]);
+        }, []);
 
         // we can apply useEffect() for different object changes as mny times as needed
 
@@ -31,16 +31,17 @@ const cockpit = (props) => {
             btnClass = classes.Red;
         }
 
-        if (props.persons.length <= 2) {
+        if (props.personsLength <= 2) {
             assignedClasses.push(classes.red); // classes = ['red']
         }
-        if (props.persons.length <= 1) {
+        if (props.personsLength <= 1) {
             assignedClasses.push(classes.bold) // classes = ['red, 'bold']
         }
 
         return (
             <div className={classes.Cockpit}>
                 <h1>{props.title}</h1>
+                <p>{props.personsLength}</p>
                 <p className={assignedClasses.join(' ')}>This is really working</p>
                 <button className={btnClass} onClick={props.clicked}>Toggle persons</button>
 
@@ -49,4 +50,4 @@ const cockpit = (props) => {
     }
 ;
 
-export default cockpit;
+export default React.memo(cockpit);
