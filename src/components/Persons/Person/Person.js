@@ -3,8 +3,14 @@ import classes from './Person.css';
 import PropTypes from 'prop-types';
 
 class Person extends Component {
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
+
+
     componentDidMount() {
-        this.inputElement.focus();
+        this.inputElementRef.current.focus();
     }
 
     render() {
@@ -17,7 +23,7 @@ class Person extends Component {
                 <input
                     //here we can save reference to the current element to a class property
                     // and after we can operate with that reference in component life cycle hooks.
-                    ref={(inputEl) => {this.inputElement = inputEl}}
+                    ref={this.inputElementRef}
                     type="text" onChange={this.props.changed} value={this.props.name}/>
             </div>
 
