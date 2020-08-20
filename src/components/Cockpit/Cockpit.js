@@ -13,7 +13,7 @@ const cockpit = (props) => {
             }, 1000);
 
             // we can add return to have clean up work? after component unmount action
-            return ()=>{
+            return () => {
                 clearTimeout(timer);
                 console.log('[Cockpit.js] cleanup work in useEffect')
             }
@@ -23,6 +23,13 @@ const cockpit = (props) => {
 
         // we can apply useEffect() for different object changes as mny times as needed
 
+        useEffect(() => {
+            console.log('[Cockpit.js] 2nd useEffect');
+            return() =>{
+                console.log('[Cockpit.js] Clean up work in 2nd useEffect');
+            }
+
+        });
 
         const assignedClasses = [];
 
