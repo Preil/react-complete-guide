@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Person from './Person/Person'
 
+
 class Persons extends Component {
 
     // static getDerivedStateFromProps(props, state){
@@ -37,15 +38,19 @@ class Persons extends Component {
     }
 
     render() {
-        return this.props.persons.map((person, index) => {
-            console.log('[Persons.js] rendering...');
-            return <Person
-                name={person.name}
-                age={person.age}
-                click={() => this.props.clicked(index)}
-                key={person.id}
-                changed={(event) => this.props.changed(event, person.id)}/>
-        });
+        return (
+
+            this.props.persons.map((person, index) => {
+                console.log('[Persons.js] rendering...');
+                return <Person
+                    name={person.name}
+                    age={person.age}
+                    click={() => this.props.clicked(index)}
+                    key={person.id}
+                    changed={(event) => this.props.changed(event, person.id)}
+                />
+            })
+        );
     }
 }
 
